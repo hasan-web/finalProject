@@ -1,0 +1,53 @@
+
+<a routerLink="/corona">Corona Cases List</a>
+
+<!-- For User ID -->
+<mat-table [dataSource]="MyDataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="firstName">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> First Name </mat-header-cell>
+     <mat-cell *matCellDef="let data"> {{data.firstName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </mat-header-cell>
+      <mat-cell *matCellDef="let data"> {{data.lastName}} </mat-cell>
+      </ng-container>
+
+    <ng-container matColumnDef="Gender">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Gender </mat-header-cell>
+    <mat-cell *matCellDef="let data"> {{data.Gender}} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="Address">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Address </mat-header-cell>
+    <mat-cell *matCellDef="let data"> {{data.Address}} </mat-cell>
+    </ng-container>
+
+
+      <ng-container matColumnDef="Status">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Status </mat-header-cell>
+        <mat-cell *matCellDef="let data"> {{data.Status}} </mat-cell>
+        </ng-container>
+
+    <ng-container matColumnDef="action">
+    <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+    <mat-cell *matCellDef="let data">
+    <button mat-raised-button color="primary" (click)="editEmployee(data._id)">Edit</button>
+    &nbsp;&nbsp;&nbsp;
+    <button mat-raised-button color="warn" (click)="deleteEmployee()">Delete</button>
+    &nbsp;&nbsp;&nbsp;
+    <button mat-raised-button color="primary" (click)="addEmployee()">Add</button>
+  </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>
+
+ <!-- To paginate between pages with search -->
+ <mat-paginator #paginator [length]="employeeList && employeeList.length" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]">
+ </mat-paginator>
+ <!-- </mat-card> -->
+ <a routerLink="/meanstack/add">Add a patient</a>

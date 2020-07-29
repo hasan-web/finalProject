@@ -1,0 +1,80 @@
+<a routerLink="/meanstack/list">Back</a>
+<mat-toolbar>
+  <span>Global Coronavirus information</span>
+</mat-toolbar>
+
+<mat-content [fullscreen]="true">
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-subtitle>Global</mat-card-subtitle>
+      <mat-card-title>Coronavirus cases</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <h1>{{info?.cases | number}}</h1>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-subtitle>Global</mat-card-subtitle>
+      <mat-card-title>Deaths</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <h1>{{info?.deaths | number}}</h1>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-subtitle>Global</mat-card-subtitle>
+      <mat-card-title>Recovered</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <h1>{{info?.recovered | number}}</h1>
+    </mat-card-content>
+  </mat-card>
+
+</mat-content>
+
+
+
+
+
+<mat-card>
+
+  <mat-card-header [translucent]="true">
+    <mat-toolbar>
+      <mat-toolbar-title>
+        Coronavirus by Country
+      </mat-toolbar-title>
+    </mat-toolbar>
+  </mat-card-header>
+
+  <mat-card-content [fullscreen]="true">
+    <mat-card-header collapse="condense">
+      <mat-toolbar>
+        <mat-title size="large">Coronavirus by Country</mat-title>
+      </mat-toolbar>
+    </mat-card-header>
+    <mat-toolbar>
+      <mat-searchbar [(ngModel)]="searchCountry" name="searchCountry" ngDefaultControl autocomplete="off"></mat-searchbar>
+    </mat-toolbar>
+
+    <mat-list *ngFor="let country of countries | filter:searchCountry">
+      <mat-list-item>
+        <mat-label>
+          <h1>{{country.country}}</h1>
+          <p>
+            Cases: {{country.cases | number}} | Today: {{country.todayCases | number}} | Active: {{country.active | number}}<br>
+            Deaths: {{country.deaths | number}} | Today: {{country.todayDeaths | number}}<br>
+            Recovered: {{country.recovered | number}} | Critical {{country.critical | number}}
+          </p>
+        </mat-label>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+
+
+</mat-card>
+

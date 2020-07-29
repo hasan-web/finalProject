@@ -1,0 +1,75 @@
+<div class="form-group" [formGroup]="this.frmGroup">
+<table>
+  <tr>
+    <td colspan="2">
+    <mat-form-field class="demo-full-width">
+     <input formControlName="firstName" matInput placeholder="firstName">
+    </mat-form-field>
+    <mat-error>
+     <span *ngIf="!frmGroup.get('firstName').valid && frmGroup.get('firstName').touched">Please enter firstName</span>
+    </mat-error>
+    </td>
+    </tr>
+    <tr>
+      <tr>
+        <td colspan="2">
+        <mat-form-field class="demo-full-width">
+         <input formControlName="lastName" matInput placeholder="lastName">
+        </mat-form-field>
+        <mat-error>
+         <span *ngIf="!frmGroup.get('lastName').valid && frmGroup.get('lastName').touched">Please enter lastName</span>
+        </mat-error>
+        </td>
+        </tr>
+        <tr>
+
+  <tr>
+    <td colspan="2">
+    <mat-form-field class="demo-full-width">
+     <input formControlName="Gender" matInput placeholder="Gender">
+    </mat-form-field>
+    <mat-error>
+     <span *ngIf="!frmGroup.get('Gender').valid && frmGroup.get('Gender').touched">Please enter Gender</span>
+    </mat-error>
+    </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+      <mat-form-field class="demo-full-width">
+       <input formControlName="Address" matInput placeholder="Address">
+      </mat-form-field>
+      <mat-error>
+       <span *ngIf="!frmGroup.get('Address').valid && frmGroup.get('Address').touched">Please enter Address</span>
+      </mat-error>
+      </td>
+      </tr>
+<tr>
+<td colspan="2">
+<mat-form-field class="demo-full-width">
+ <input formControlName="country" matInput placeholder="country">
+</mat-form-field>
+<mat-error>
+ <span *ngIf="!frmGroup.get('country').valid && frmGroup.get('country').touched">Please enter country</span>
+</mat-error>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<mat-form-field class="demo-full-width">
+ <input formControlName="status" matInput placeholder="status">
+</mat-form-field>
+<mat-error>
+ <span *ngIf="!frmGroup.get('status').valid && frmGroup.get('status').touched">Please enter status</span>
+</mat-error>
+</td>
+</tr>
+<tr>
+<td colspan="2" class="content-center">
+<button mat-raised-button color="accent" [disabled]="!frmGroup.valid">Submit</button>
+</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</table>
+</div>

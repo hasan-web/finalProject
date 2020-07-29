@@ -1,0 +1,87 @@
+<table>
+    <tr>
+      <td colspan="2">
+
+        <div class="form-group" [formGroup]="this.formGroup">
+          <mat-form-field class="demo-full-width">
+            <input formControlName="firstName" matInput placeholder="First Name">
+            </mat-form-field>
+        </div>
+  <mat-error>
+  <span *ngIf="!formGroup.get('firstName').valid && formGroup.get('firstName').touched">Please enter first name</span>
+  </mat-error>
+  </td>
+    </tr>
+  <tr>
+  <td colspan="2">
+    <div class="form-group" [formGroup]="this.formGroup">
+      <mat-form-field class="demo-full-width">
+        <input formControlName="lastName" matInput placeholder="Last Name">
+        </mat-form-field>
+    </div>
+  <mat-error>
+  <span *ngIf="!formGroup.get('lastName').valid && formGroup.get('lastName').touched">Please enter last name</span>
+  </mat-error>
+  </td>
+  </tr>
+  <tr>
+  <td colspan="2">
+    <div class="form-group" [formGroup]="this.formGroup">
+      <mat-form-field class="demo-full-width">
+        <input formControlName="Gender" matInput placeholder="Gender">
+        </mat-form-field>
+  </div>
+  <mat-error>
+  <span *ngIf="!formGroup.get('Gender').valid && formGroup.get('Gender').touched">Please enter Gender</span>
+  </mat-error>
+  </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <div class="form-group" [formGroup]="this.formGroup">
+        <mat-form-field class="demo-full-width">
+          <input formControlName="Address" matInput placeholder="Address">
+          </mat-form-field>
+      </div>
+    <mat-error>
+    <span *ngIf="!formGroup.get('Address').valid && formGroup.get('Address').touched">Please enter Address</span>
+    </mat-error>
+    </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <div class="form-group" [formGroup]="this.formGroup">
+          <mat-form-field class="demo-full-width">
+            <input formControlName="country" matInput placeholder="country">
+            </mat-form-field>
+        </div>
+      <mat-error>
+      <span *ngIf="!formGroup.get('country').valid && formGroup.get('country').touched">Please enter country</span>
+      </mat-error>
+      </td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          <div class="form-group" [formGroup]="this.formGroup">
+        <mat-form-field class="demo-full-width">
+        <input formControlName="status" matInput placeholder="status">
+        </mat-form-field>
+  </div>
+
+        <mat-error>
+        <span *ngIf="!formGroup.get('status').valid && formGroup.get('status').touched">Please enter status</span>
+        </mat-error>
+        </td>
+        </tr>
+  <tr>
+  <td colspan="2" class="content-center">
+  <button mat-raised-button color="accent" (click)="addEmployee()" [disabled]="!formGroup.valid">Submit</button>
+  </td>
+  </tr>
+  <tr>
+  <td></td>
+  </tr>
+
+
+  </table>
