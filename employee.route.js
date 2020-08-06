@@ -41,22 +41,13 @@ employeeRoute.route('/editEmployee/:id').get(function (req, res) {
 
 // To Update The Employee Details
 employeeRoute.route('/updateEmployee/:id').post(function (req, res) {
- employeeModel.findById(req.params.id, function (err, employee) {
- if (!employee)
- return next(new Error('Unable To Find Employee With This Id'));
- else {
- employee.firstName = req.body.firstName;
- employee.lastName = req.body.lastName;
- employee.email = req.body.email;
- employee.phone = req.body.phone;
-
- employee.save().then(emp => {
- res.json('Patient Updated Successfully');
- })
- .catch(err => {
- res.status(400).send("Unable To Update Employee");
- });
- }
+ employeeModel.findByIdAndUpdate(req.params.id, {
+  firstName: req.body.firstName,
+  lastName: req.body.lastName,
+  email: req.body.email,
+  phone: req.body.phone
+ }, function (err, employee) {
+    res.send((err) ? err : employee);
  });
 });
 
