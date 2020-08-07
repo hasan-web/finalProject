@@ -56,9 +56,9 @@ export class EditEmployeeComponent implements OnInit {
  // To Update Employee Detail
  updateEmployee() {
  if (this.frmGroup.valid) {
- let data = this.frmGroup.value;
+ let data = JSON.stringify(this.frmGroup.value);
  this.service.updateEmployee(this.empid, data).subscribe(() => {
- this.router.navigate(['meanstack/list']);
+  this.router.navigate(['meanstack/list']);
  });
  }
  }
